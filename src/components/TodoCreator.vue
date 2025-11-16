@@ -1,6 +1,6 @@
 <script setup>
 import { reactive, defineEmits } from "vue";
-import ToDoButton from "@/ToDoButton.vue";
+import ToDoButton from "@/components/ToDoButton.vue";
 
 const emit = defineEmits(["create-todo"]);
 
