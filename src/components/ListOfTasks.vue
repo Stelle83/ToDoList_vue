@@ -1,12 +1,13 @@
 <script setup>
-    import {ref} from "vue"
-
+import TodoCreator from "@/components/TodoCreator.vue";
    
 </script>
 
 <template>
     <main>
         <h1> Create Todo:</h1>
+        <TodoCreator/>
+        
     </main>
 </template>
 
