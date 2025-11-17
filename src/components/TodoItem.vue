@@ -61,7 +61,7 @@ li {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 16px 10px;
+  padding: 10px 10px;
   background-color: #f1f1f1;
   box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
     0 8px 10px -6px rgb(0 0 0 / 0.1);
@@ -81,7 +81,7 @@ li {
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 
     &:checked {
-      background-color: #41b080;
+      background-color: green;
     }
   }
 

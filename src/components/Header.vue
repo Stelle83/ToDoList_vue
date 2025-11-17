@@ -1,4 +1,12 @@
 <script setup>
+    import {ref} from 'vue';
+
+    const currentDate = ref(new Date().toLocaleDateString('sv-SE', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    }));
 
 </script>
 
@@ -9,6 +17,7 @@
                 <img class="logo" src="@/assets/images/logo.png" alt="Logo" />
                 <h1>To-Do List</h1>
             </div>
+            <div>{{ currentDate }}</div>
         </nav>
     </header>
 </template>
@@ -17,6 +26,10 @@
     h1 {
         color: green;
     }
+
+    * {
+    color: orange;
+}
 
     .top-nav {
         display: flex;

@@ -38,13 +38,7 @@ const createTodo = () => {
         transition: 250ms ease;
         border: 2px solid orange;
 
-        &.input-err {
-            border-color: red;
-        }
-
         &:focus-within {
-          /*  box-shadow: 0 -4px 6px -1px rgb(0 0 0 / 0.1),
-            0 -2px 4px -2px rgb(0 0 0 / 0.1); */
            box-shadow: 0 0 6px orange;
         }
     }
@@ -61,7 +55,7 @@ const createTodo = () => {
     .err-msg {
         color: red;
         margin-top: 6px;
-        font-size: 12px;
+        font-size: 14px;
         text-align: center;
     }   
 </style>

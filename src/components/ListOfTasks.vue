@@ -2,7 +2,7 @@
 import {ref, watch, computed} from "vue";
 import {uid} from "uid";
 import { Icon } from "@iconify/vue";
-import TodoCreator from "@/components/TodoCreator.vue";
+import TodoForm from "@/components/TodoForm.vue";
 import TodoItem from "@/components/TodoItem.vue";
 const todoList = ref([]);
 
@@ -57,8 +57,8 @@ const deleteTodo = (todoId) => {
 
 <template>
     <main>
-        <h1> Create Todo!!:</h1>
-        <TodoCreator @create-todo="createTodo"/>
+        <h1> Create Todo:</h1>
+        <TodoForm @create-todo="createTodo"/>
         <ul class="todo-list" v-if="todoList.length > 0">
             <TodoItem
                 v-for="(todo, index) in todoList" 
@@ -76,7 +76,7 @@ const deleteTodo = (todoId) => {
         </p>
         <p v-if="todoCompleted && todoList.length > 0" class="todos-msg">
             <span>You have completed all your todos!</span>
-            <Icon icon="noto-v1:party-popper" />
+            <Icon icon="noto-v1:party-popper" width="30"/>
         </p>
     </main>
 </template>

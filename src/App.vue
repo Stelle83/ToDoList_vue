@@ -1,5 +1,4 @@
 <script setup>
-  import DateInfo from '@/components/DateInfo.vue';
   import Summary from '@/components/Summary.vue';
   import ListOfTasks from '@/components/ListOfTasks.vue';
   import Header from '@/components/Header.vue';
@@ -9,8 +8,6 @@
 <template>
 
   <Header/>
-
-  <DateInfo/>
 
   <ListOfTasks/>
 

@@ -3,7 +3,7 @@
 
 <template>
     <button>
-        <slot>Add Task</slot>
+        <slot>Add</slot>
     </button>    
 </template>
 
@@ -11,6 +11,7 @@
     button {
         background-color: orange;
         color: white;
+        font-size: 14px;
         border: none;
         padding: 8px 16px;
         cursor: pointer;
