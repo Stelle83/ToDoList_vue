@@ -1,8 +1,6 @@
 <script setup>
-  import Summary from '@/components/Summary.vue';
   import ListOfTasks from '@/components/ListOfTasks.vue';
   import Header from '@/components/Header.vue';
-
 </script>
 
 <template>
@@ -10,8 +8,6 @@
   <Header/>
 
   <ListOfTasks/>
-
-  <Summary />
 
 </template>
 
@@ -25,5 +21,9 @@
   margin: 1rem;
 }
 
-
+@media (min-width: 800px) {
+.container {
+  width: 1000px;
+  margin: 2rem;
+}}
 </style>

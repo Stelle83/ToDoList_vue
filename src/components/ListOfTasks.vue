@@ -118,7 +118,7 @@ const handleDrop = (targetIndex) => {
 <style scoped>
     h1 {
         margin-bottom: 16px;
-        text-align: center;
+        text-align: start;
     }
 
     .todo-list {
@@ -143,6 +143,14 @@ const handleDrop = (targetIndex) => {
         flex-direction: column;
         max-width: 500px;
         margin: 0 auto;
-        padding: 40px 16px;
+        padding: 20px 16px;
     }
+
+@media (min-width: 800px) {
+    main {
+        max-width: 800px;
+        padding: 0;
+        
+    }
+}
 </style>
