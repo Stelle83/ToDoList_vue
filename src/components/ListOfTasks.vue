@@ -13,7 +13,8 @@ watch(todoList, () => {
 );
 
 const todoCompleted = computed(() => {
-    return todoList.value.every((todo) => todo.isCompleted);
+    return todoList.value.length > 0 &&
+        todoList.value.every((todo) => todo.isCompleted);
 });
 
 const fetchTodoList = () => {
@@ -53,6 +54,36 @@ const updateTodo = (todoVal, todoPos) => {
 const deleteTodo = (todoId) => {
     todoList.value = todoList.value.filter((todo) => todo.id !== todoId);
 };
+
+/* drag & drop logic */
+
+const dragSrcIndex = ref(null);
+
+const handleDragStart = (index) => {
+  dragSrcIndex.value = index;
+};
+
+const handleDrop = (targetIndex) => {
+  if (dragSrcIndex.value === null) return;
+
+  const from = dragSrcIndex.value;
+  const to = targetIndex;
+
+  if (from === to) {
+    dragSrcIndex.value = null;
+    return;
+  }
+
+  const movedItem = todoList.value[from];
+
+  // remove from old position
+  todoList.value.splice(from, 1);
+  // insert at new position
+  todoList.value.splice(to, 0, movedItem);
+
+  dragSrcIndex.value = null;
+};
+
 </script>
 
 <template>
@@ -62,12 +93,15 @@ const deleteTodo = (todoId) => {
         <ul class="todo-list" v-if="todoList.length > 0">
             <TodoItem
                 v-for="(todo, index) in todoList" 
-                :todo="todo" 
+                :todo="todo"
+                :key="todo.id"
                 :index="index" 
                 @toggle-complete="toggleTodoComplete"
                 @edit-todo="toggleEditTodo"
                 @update-todo="updateTodo"
                 @delete-todo="deleteTodo"
+                @drag-start="handleDragStart"
+                @drop-item="handleDrop"
             />
         </ul>
         <p class="todos-msg" v-else>
@@ -87,14 +121,14 @@ const deleteTodo = (todoId) => {
         text-align: center;
     }
 
-        .todo-list {
-            display: flex;
-            flex-direction: column;
-            list-style: none;
-            margin-top: 0;
-            padding: 24px;
-            gap: 20px;
-        }
+    .todo-list {
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        margin-top: 0;
+        padding: 24px;
+        gap: 20px;
+    }
 
     .todos-msg {
         display: flex;
@@ -103,7 +137,6 @@ const deleteTodo = (todoId) => {
         gap: 8px;
         margin-top: 24px;
     }
-
 
     main {
         display : flex;

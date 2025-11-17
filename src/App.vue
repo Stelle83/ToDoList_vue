@@ -13,22 +13,16 @@
 
   <Summary />
 
-
-
 </template>
 
 <style>
-
 * {
   font-family: "Rubik", sans-serif;
-  margin: 20;
-  padding: 0;
-  box-sizing: border-box;
 }
 
 .container {
-  max-width: 1100px;
-  margin: 0 auto;
+  max-width: 480px;
+  margin: 1rem;
 }
 
 

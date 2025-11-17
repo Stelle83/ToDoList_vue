@@ -15,7 +15,7 @@
         <nav class="container">
             <div class=top-nav>
                 <img class="logo" src="@/assets/images/logo.png" alt="Logo" />
-                <h1>To-Do List</h1>
+                <h2>To-Do List</h2>
             </div>
             <div>{{ currentDate }}</div>
         </nav>
@@ -23,14 +23,10 @@
 </template>
 
 <style scoped>
-    h1 {
+    * {
         color: green;
     }
-
-    * {
-    color: orange;
-}
-
+   
     .top-nav {
         display: flex;
         align-items: center;

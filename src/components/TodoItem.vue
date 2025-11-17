@@ -1,5 +1,6 @@
 <script setup>
 import { Icon } from "@iconify/vue";
+
 const props = defineProps({
     todo: {
         type: Object,
@@ -10,11 +11,16 @@ const props = defineProps({
         required: true,
     },
 });
-defineEmits(["toggle-complete", "edit-todo", "update-todo", "delete-todo"]);
+defineEmits(["toggle-complete", "edit-todo", "update-todo", "delete-todo", "drag-start", "drop-item"]);
 </script>
 
 <template>
-    <li>
+    <li
+        draggable="true"
+        @dragstart="$emit('drag-start', index)"
+        @dragover.prevent
+        @drop="$emit('drop-item', index)"
+    >
         <input 
             type="checkbox" 
             :checked="todo.isCompleted" 
